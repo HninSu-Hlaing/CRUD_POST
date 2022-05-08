@@ -1,0 +1,36 @@
+<div class="container">
+<h4 class="row justify-content-center display-4">Post List</h4>
+ <%= link_to 'Create Post' ,new_post_path %>
+  <% if @posts.present? %>
+<div class="row justify-content-center">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col" colspan="2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+              <td><%= post.created_user_id %></td>
+              <td><%= post.title %></td>
+              <td><%= post.description %></td>
+              <td><%= post.status %></td>
+              <td><%= link_to 'Delete',
+              post_tble_path(post.id),
+              method: :delete,
+              data: { confirm: 'Are you sure to delete?' } %>
+        </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+     <% else %>
+  <% end %>
+</div>
+</div>
