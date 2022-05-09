@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   resources:users
   resources:post_tbles
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :post_tbles do
+    collection{post :import}
+  end
 end

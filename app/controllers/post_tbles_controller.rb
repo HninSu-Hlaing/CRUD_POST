@@ -1,12 +1,18 @@
 class PostTblesController < ApplicationController
     def index
         @posts = PostTblesService.listAll
+      
+        respond_to do |format|
+            format.html
+            format.csv {send_data @posts.to_csv}
+        end
+    end
+    def import
+        PostTble.import(params[:file])
+        redirect_to post_list_path,flash[:notice] = "file is imported!"
     end
     def new
         @post = PostTblesService.newPost
-    end
-    def edit
-        @posts = PostTblesService.findById(params[:id])
     end
     def create
         params[:post_tble][:user_id] = current_user.id

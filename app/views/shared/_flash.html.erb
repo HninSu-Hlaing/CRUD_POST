@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+<div style="text-align:center;font-weight:bold;color:white;background-color:green;padding:10px;border:1px solid white;">
+    <%= flash[:notice]%>
+</div>
+<% end %>
+<% if flash[:alert] %>
+<div style="text-align:center;font-weight:bold;color:red;">
+    <%= flash[:alert] %>
+</div>
+<% end %>

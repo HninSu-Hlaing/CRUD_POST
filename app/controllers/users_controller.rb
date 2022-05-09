@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    def index
+    def list
         @users = UsersService.listAll
     end
     def new
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
  
     def destroy
         UsersService.deleteUser(params[:id])
-        redirect_to root_path
+        redirect_to '/user_list'
     end
     private
     def user_params
