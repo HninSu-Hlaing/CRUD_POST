@@ -13,6 +13,9 @@ class PostTblesRepository
         def findById(id)
             @post = PostTble.find(id)
         end
+        def updatePost(post,post_form)
+            isUpdatePost = post.update(post_form)
+        end
         def deletePost(post)
             post.destroy
         end

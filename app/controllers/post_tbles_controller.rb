@@ -13,6 +13,18 @@ class PostTblesController < ApplicationController
             render :new
         end
     end
+   
+    def edit
+        @post = PostTblesService.findById(params[:id])
+      end
+    def update
+        isUpdatePost = PostTblesService.updatePost(params[:id],post_params)
+        if isUpdatePost
+            redirect_to '/posts'
+        else
+            render :edit
+        end
+    end
     def destroy
         PostTblesService.deletePost(params[:id])
         redirect_to '/posts'

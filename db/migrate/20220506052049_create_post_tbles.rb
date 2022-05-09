@@ -1,7 +1,7 @@
 class CreatePostTbles < ActiveRecord::Migration[6.1]
   def change
-   # belongs_to :users , class_name: 'CreateUsers',foreign_key: 'user_id'
-    create_table :post_tbles do |t|
+      #belongs_to :users , class_name: 'CreateUsers',foreign_key: 'user_id'
+      create_table :post_tbles do |t|
       t.string :title
       t.string :description
       t.integer :status
@@ -11,7 +11,7 @@ class CreatePostTbles < ActiveRecord::Migration[6.1]
       t.datetime :deleted_at
 
       t.timestamps
-      t.references :user_id, references: :users,null: false
+      #t.references :user_id, references: :users,null: false
     end
   end
 end

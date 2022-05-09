@@ -4,7 +4,7 @@
     <h4 class="mt-4 mb-4 display-4">Sign in</h4>
 </div>
 <div class="row justify-content-center">
-<%= form_with url:sessions_path do |f| %>
+<%= form_with url:login_path do |f| %>
     <div class="form-group">
         <%= f.label :email %>
         <%= f.text_field :email,class: 'form-control' %>

@@ -3,9 +3,10 @@ class SessionsController < ApplicationController
     end
   
     def create
+      @users = UsersService.findById(params[:id])
       @user = UsersService.sessionCreate(params[:email])
       if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
+        session[:user_id] = @users.id
         redirect_to '/new_post', notice: "Logged in!"
       else
         flash.now[:alert] = "Email or Password is invalid"

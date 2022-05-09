@@ -12,6 +12,10 @@ class PostTblesService
         def findById(id)
             @posts = PostTblesRepository.findById(id)
         end
+        def updatePost(id,post_form)
+            @post = PostTblesRepository.findById(id)
+            isUpdatePost = PostTblesRepository.updatePost(@post,post_form)
+        end
         def deletePost(id)
             @post = PostTblesRepository.findById(id)
             PostTblesRepository.deletePost(@post)

@@ -9,10 +9,12 @@ class UsersService
         def createUser(user)
             isSaveUser = UsersRepository.createUser(user)
         end
- 
+        def findById(id)
+            @users = UsersRepository.findById(id)
+        end
         def sessionCreate(email)
             UsersRepository.sesionCreate(email)
-          end
+        end
         def deleteUser(id)
             @user = UsersRepository.findById(id)
             UsersRepository.deleteUser(@user)
