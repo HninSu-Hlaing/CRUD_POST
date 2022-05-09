@@ -5,12 +5,17 @@ class PostTblesController < ApplicationController
     def new
         @post = PostTblesService.newPost
     end
+    def edit
+        @posts = PostTblesService.findById(params[:id])
+    end
     def create
-        isSavePost = PostTblesService.createPost(post_params)
-        if isSavePost
-            redirect_to '/posts'
+        params[:post_tble][:user_id] = current_user.id
+        @post = PostTblesService.createPost(post_params)
+        isSave = PostTblesService.save(post_params)
+        if isSave
+          redirect_to '/post_list'
         else
-            render :new
+          render :new
         end
     end
    
@@ -20,17 +25,17 @@ class PostTblesController < ApplicationController
     def update
         isUpdatePost = PostTblesService.updatePost(params[:id],post_params)
         if isUpdatePost
-            redirect_to '/posts'
+            redirect_to '/post_list'
         else
             render :edit
         end
     end
     def destroy
         PostTblesService.deletePost(params[:id])
-        redirect_to '/posts'
+        redirect_to '/post_list'
     end
     private
     def post_params
-        params.require(:post_tble).permit(:title,:description,:status,:created_user_id)
+        params.require(:post_tble).permit(:title,:description,:status,:user_id)
     end
 end

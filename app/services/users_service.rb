@@ -6,9 +6,13 @@ class UsersService
         def newUser
             @user = UsersRepository.newUser
         end
-        def createUser(user)
-            isSaveUser = UsersRepository.createUser(user)
-        end
+        def create(user)
+            isSaveUser = UsersRepository.create(user)
+          end
+      
+          def create_user(user)
+            UsersRepository.create_user(user)
+          end
         def findById(id)
             @users = UsersRepository.findById(id)
         end

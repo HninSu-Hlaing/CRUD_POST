@@ -7,16 +7,18 @@ class UsersRepository
             @users = User.new
         end
       
-        def createUser(user)
+        def create(user)
             @user = User.new(user)
             isSaveUser = @user.save
-        end
+          end
+      
+          def create_user(user)
+            @user = User.new(user)
+          end
         def findById(id)
             @user = User.find(id)
         end
-        def sesionCreate(email)
-            user = User.find_by_email(email)
-        end
+      
         def deleteUser(user)
             user.destroy
         end

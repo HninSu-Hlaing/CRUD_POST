@@ -6,10 +6,14 @@ class PostTblesRepository
         def newPost
             @posts = PostTble.new
         end
-        def createPost(post)
+        def create(post)
             @post = PostTble.new(post)
-            isSavePost = @post.save
-        end
+            isSave = @post.save
+          end
+      
+          def createPost(post)
+            @post = PostTble.new(post)
+          end
         def findById(id)
             @post = PostTble.find(id)
         end

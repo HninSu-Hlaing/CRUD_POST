@@ -6,9 +6,14 @@ class PostTblesService
         def newPost
             @posts = PostTblesRepository.newPost
         end
-        def createPost(post)
-            isSavePost = PostTblesRepository.createPost(post)
-        end
+        def save(post)
+            isSave = PostTblesRepository.create(post)
+          end
+      
+          def createPost(post)
+            PostTblesRepository.createPost(post)
+          end
+      
         def findById(id)
             @posts = PostTblesRepository.findById(id)
         end

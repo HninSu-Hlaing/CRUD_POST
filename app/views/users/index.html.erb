@@ -1,34 +1,17 @@
 <div class="container">
-<h4 class="row justify-content-center display-4">User List</h4>
- <%= link_to 'Create User' ,signup_path %>
-  <% if @users.present? %>
-<div class="row justify-content-center">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">UserName</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= user.username %></td>
-              <td><%= user.email %></td>
-              <td><%= user.password_digest %></td>
-              <td><%= link_to 'Delete',
-              user_path(user.id),
-              method: :delete,
-              data: { confirm: 'Are you sure to delete?' } %>
-        </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <h1 class="row justify-content-center display-4">Welcome</h1>
+    <% if current_user %>
+    <h4 class="row justify-content-center">Logged in as : <%= current_user.email %></h4>
+    <div class="form-group row justify-content-center">
+        <%= button_to "logout" , logout_path, method: :delete ,class: 'form-control btn-danger'%>
     </div>
-    <% else %>
-  <% end %>
+    <% end %>
+    <div class="form-group">
+        <h3 class="row justify-content-center">Create user account</h3>
+        <h4 class="row justify-content-center"><%= link_to "Sign Up",signup_path %></h4>
+        <h4 class="row justify-content-center"><%= link_to "Log in",login_path %></h4>
+        <h4 class="row justify-content-center"><%= link_to "Post List",post_list_path %></h4>
+        
+    </div>
 </div>
-</div>
+

@@ -6,7 +6,7 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">User ID</th>
+           
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Status</th>
@@ -16,7 +16,6 @@
         <tbody>
           <% @posts.each do |post| %>
             <tr>
-              <td><%= post.created_user_id %></td>
               <td><%= post.title %></td>
               <td><%= post.description %></td>
               <td><%= post.status %></td>
@@ -32,5 +31,6 @@
     </div>
      <% else %>
   <% end %>
+  <h4 class="row"><%= link_to "<<Back",root_path %></h4>
 </div>
 </div>

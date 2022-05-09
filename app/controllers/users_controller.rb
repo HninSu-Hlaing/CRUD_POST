@@ -5,12 +5,17 @@ class UsersController < ApplicationController
     def new
         @user = UsersService.newUser
     end
+    def edit
+        @users = UsersService.findById(params[:id])
+    end
     def create
-        isSaveUser = UsersService.createUser(user_params)
+        @user = UsersService.create_user(user_params)
+        isSaveUser = UsersService.create(user_params)
+    
         if isSaveUser
-            redirect_to root_path, notice: "User was successfully created." 
+            redirect_to '/login'
         else
-            render :new , notice: "Existing Email"
+            render :new
         end
     end
  
