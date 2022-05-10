@@ -1,3 +1,4 @@
+require "csv"
 class PostTblesController < ApplicationController
     def index
         @posts = PostTblesService.listAll
@@ -8,9 +9,9 @@ class PostTblesController < ApplicationController
         end
     end
     def import
-        PostTble.import(params[:file])
-        redirect_to post_list_path,flash[:notice] = "file is imported!"
-    end
+        PostTblesService.import(params[:file])
+        redirect_to post_list_url, notice: "Imported file"
+     end
     def new
         @post = PostTblesService.newPost
     end
@@ -25,9 +26,9 @@ class PostTblesController < ApplicationController
         end
     end
    
-    def edit
+    def show
         @post = PostTblesService.findById(params[:id])
-      end
+    end
     def update
         isUpdatePost = PostTblesService.updatePost(params[:id],post_params)
         if isUpdatePost

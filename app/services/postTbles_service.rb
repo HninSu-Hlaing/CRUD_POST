@@ -25,5 +25,8 @@ class PostTblesService
             @post = PostTblesRepository.findById(id)
             PostTblesRepository.deletePost(@post)
         end
+        def import(file)
+            PostTblesRepository.import(file)
+        end
     end
 end

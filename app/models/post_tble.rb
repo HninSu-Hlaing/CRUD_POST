@@ -12,9 +12,9 @@ class PostTble < ApplicationRecord
     end
     def self.import(file)
         CSV.foreach(file.path,headers: true) do |row|
-            posts = find_by_id(row["id"]) || new
-            posts.attributes = row.to_hash
-            posts.save!
+            post = find_by_id(row["id"]) || new
+            post.attributes = row.to_hash
+            post.save!
         end
     end
 end

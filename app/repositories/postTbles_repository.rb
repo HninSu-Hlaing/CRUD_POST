@@ -11,17 +11,20 @@ class PostTblesRepository
             isSave = @post.save
           end
       
-          def createPost(post)
+        def createPost(post)
             @post = PostTble.new(post)
-          end
+        end
         def findById(id)
-            @post = PostTble.find(id)
+            @post = PostTble.find_by_id(id)
         end
         def updatePost(post,post_form)
             isUpdatePost = post.update(post_form)
         end
         def deletePost(post)
             post.destroy
+        end
+        def import(file)
+            PostTble.import(file)
         end
     end
 end
