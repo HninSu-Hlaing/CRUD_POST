@@ -1,8 +1,8 @@
 class PostTble < ApplicationRecord
-    belongs_to :user
+    #belongs_to :user
 
     def self.to_csv
-        attributes = %w{id title description status}
+        attributes = %w{id title description status user_id}
         CSV.generate(headers: true) do |csv|
             csv << attributes
             all.each do |post|
