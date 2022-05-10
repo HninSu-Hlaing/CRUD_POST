@@ -1,29 +1,30 @@
 <div class="container">
 <h4 class="row justify-content-center display-4 mb-4">User List</h4>
- <div class="row mb-4">
-    <div class="col-8">
-      <%= link_to "<< Back ",root_path %>
-    </div>
-    <div class="col-4">
-      <%= link_to 'Create User >>',signup_path%>
-    </div>
- </div>
+ <%= render "header" %>
 <div class="row justify-content-center">
       <table class="table table-bordered">
         <thead>
           <tr>
+            <th scope="col">User Id</th>
             <th scope="col">UserName</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
+            <th scope="col">User Type</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Birthday</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           <% @users.each do |user| %>
             <tr>
+              <td><%= user.id %></td>
               <td><%= user.username %></td>
               <td><%= user.email %></td>
-              <td><%= user.password_digest %></td>
+              <td><%= user.user_type %></td>
+              <td><%= user.phone %></td>
+              <td><%= user.address %></td>
+              <td><%= user.birthday %></td>
               <td><%= link_to 'Delete',
               user_path(user.id),
               method: :delete,
@@ -33,6 +34,9 @@
           <% end %>
         </tbody>
       </table>
+    </div>
+    <div class="col-8">
+      <%= link_to "<< Back ",root_path %>
     </div>
 </div>
 </div>

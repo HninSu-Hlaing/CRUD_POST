@@ -14,6 +14,22 @@
         <%= form.text_field :email, class: 'form-control' %>
       </div>
        <div class="form-group">
+        <%= form.label :user_type %>
+        <%= form.text_field :user_type,class: 'form-control' %>
+      </div>
+       <div class="form-group">
+        <%= form.label :phone %>
+        <%= form.text_field :phone,class: 'form-control' %>
+      </div>
+       <div class="form-group">
+        <%= form.label :address %>
+        <%= form.text_area :address,class: 'form-control' %>
+      </div>
+       <div class="form-group">
+        <%= form.label :birthday %>
+        <%= form.date_field :birthday,class: 'form-control' %>
+      </div>
+       <div class="form-group">
         <%= form.label :password %>
         <%= form.password_field :password,class: 'form-control' %>
       </div>

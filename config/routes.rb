@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/search', to: 'users#search'
+  
+
   get '/post_list', to: 'post_tbles#index'
   get '/new_post', to: 'post_tbles#new'
   post '/new_post', to: 'post_tbles#create'

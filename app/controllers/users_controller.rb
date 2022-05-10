@@ -23,8 +23,35 @@ class UsersController < ApplicationController
         UsersService.deleteUser(params[:id])
         redirect_to '/user_list'
     end
+    def search
+        @dob = params["dob"]
+        @name = params["name"]
+        @email = params["email"]
+        @phone = params["phone"]
+        @address = params["address"]
+        @type = params["type"]
+        if @dob.present?
+            @users = User.where(birthday: @dob)
+        end
+        if @name.present?
+            @users = User.where(username: @name)
+        end
+        if @email.present?
+            @users = User.where(email: @email)
+        end
+        if @address.present?
+            @users = User.where(address: @address)
+        end
+        if @type.present?
+            @users = User.where(user_type: @type)
+        end
+        if @phone.present?
+            @users = User.where(phone: @phone)
+        end
+        render "list"
+    end
     private
     def user_params
-        params.require(:user).permit(:username,:email,:password)
+        params.require(:user).permit(:id,:username,:email,:password,:user_type,:phone,:address,:birthday)
     end
 end

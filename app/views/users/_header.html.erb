@@ -1,0 +1,49 @@
+
+      <div class="row">
+        <div class="col-8 mb-3">
+          <form class="d-flex" method="GET" action="/search">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="exampleInputName" class="form-label mr-3">Name</label>
+                            <input type="search" class="form-control" id="exampleInputName" name="name">
+                        </div>
+                        <div class="col-4">
+                            <label for="exampleInputType" class="form-label mr-3">User Type</label>
+                            <input type="search" class="form-control" id="exampleInputType" name="type">
+                        </div>
+                        <div class="col-4">
+                            <label for="exampleInputPh" class="form-label mr-3">Phone</label>
+                            <input type="search" class="form-control" id="exampleInputPh" name="phone">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="exampleInputAddr" class="form-label mr-3">Address</label>
+                            <input type="search" class="form-control" id="exampleInputAddr" name="address">
+                        </div>
+                        <div class="col-4">
+                            <label for="exampleInputDob" class="form-label mr-3">DOB</label>
+                            <input type="search" class="form-control" id="exampleInputDob" name="dob">
+                        </div>
+                        <div class="col-4">
+                            <label for="exampleInputEmail" class="form-label mr-3">Email</label>
+                            <input type="search" class="form-control" id="exampleInputEmail" name="email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-outline-primary mt-3">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-4 mt-5">
+            <%= link_to 'Create User >>',signup_path%>
+        </div>
+      </div>
+        
