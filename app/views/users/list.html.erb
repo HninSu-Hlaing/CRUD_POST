@@ -12,7 +12,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Address</th>
             <th scope="col">Birthday</th>
-            <th scope="col">Action</th>
+            <th scope="colspan=3">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +25,8 @@
               <td><%= user.phone %></td>
               <td><%= user.address %></td>
               <td><%= user.birthday %></td>
+              <td><%= link_to 'Show', user %></td>
+              <td><%= link_to 'Edit', edit_user_path(user) %></td>
               <td><%= link_to 'Delete',
               user_path(user.id),
               method: :delete,

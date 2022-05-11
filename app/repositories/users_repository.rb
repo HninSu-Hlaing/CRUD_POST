@@ -18,9 +18,15 @@ class UsersRepository
         def findById(id)
             @user = User.find(id)
         end
-      
+        def update(user,user_form)
+            updateUser = user.update(user_form)
+        end
         def deleteUser(user)
             user.destroy
+        end
+        private
+        def set_user
+            @user = User.find(params[:id])
         end
 
     end

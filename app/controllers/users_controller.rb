@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     def edit
         @users = UsersService.findById(params[:id])
     end
+    def show
+      @users = UsersService.findById(params[:id])
+    end
     def create
         @user = UsersService.create_user(user_params)
         isSaveUser = UsersService.create(user_params)
@@ -18,7 +21,17 @@ class UsersController < ApplicationController
             render :new
         end
     end
- 
+    def update
+        updateUser = UsersService.update(params[:id],user_params)
+          if updateUser
+            redirect_to user_list_path, notice: "User was successfully updated."
+          
+          else
+            render :edit
+          
+          end
+    
+      end
     def destroy
         UsersService.deleteUser(params[:id])
         redirect_to '/user_list'
@@ -32,20 +45,19 @@ class UsersController < ApplicationController
         @type = params["type"]
         if @dob.present?
             @users = User.where(birthday: @dob)
-        end
-        if @name.present?
+        elsif @name.present?
             @users = User.where(username: @name)
-        end
-        if @email.present?
+        
+        elsif @email.present?
             @users = User.where(email: @email)
-        end
-        if @address.present?
+        
+        elsif @address.present?
             @users = User.where(address: @address)
-        end
-        if @type.present?
+        
+        elsif @type.present?
             @users = User.where(user_type: @type)
-        end
-        if @phone.present?
+        
+        elsif @phone.present?
             @users = User.where(phone: @phone)
         end
         render "list"
