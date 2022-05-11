@@ -25,7 +25,6 @@ class UsersController < ApplicationController
         updateUser = UsersService.update(params[:id],user_params)
           if updateUser
             redirect_to user_list_path, notice: "User was successfully updated."
-          
           else
             render :edit
           
